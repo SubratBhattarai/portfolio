@@ -1,45 +1,261 @@
-:root {
-  --background: #f8f9fa;
-  --text: #212529;
-  --accent: #0d6efd;
-  --card: #ffffff;
-  --highlight: #ef476f;
+/* Contact.css */
+
+.co-root {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 7rem 0 4rem;
+  background: radial-gradient(
+    ellipse 55% 45% at 80% 30%,
+    rgba(200, 169, 126, 0.04) 0%,
+    transparent 70%
+  );
 }
 
-.contact{
-    position: absolute;
-    top: 350%;
-    left: 10%;
-    margin-top: 20px;
-    text-align: left;
+.co-inner {
+  width: 90%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
 }
 
-.contact p{
-    font-size: 1rem;
-    margin-bottom: 10px;
+/* ── Header ─────────────────────────────────────────────────────────── */
+.co-header { margin-bottom: 3.5rem; }
+
+.co-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--sb-mono);
+  font-size: 9px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--sb-accent);
+  margin-bottom: 1.2rem;
+}
+.co-eyebrow-line {
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: var(--sb-accent);
+  flex-shrink: 0;
 }
 
-.contact a{
-    margin-right: 20px;
-    font-size: 2rem;
-    text-decoration: none;
+.co-title {
+  font-family: var(--sb-serif);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--sb-text);
+  margin-bottom: 1.1rem;
+}
+.co-title em { font-style: italic; color: var(--sb-accent); }
+
+.co-subtitle {
+  font-family: var(--sb-mono);
+  font-size: 10.5px;
+  line-height: 1.9;
+  color: var(--sb-muted);
+  max-width: 460px;
+}
+.co-email-link {
+  color: var(--sb-accent);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.co-email-link:hover { opacity: 0.7; }
+
+/* ── Body: form + side ──────────────────────────────────────────────── */
+.co-body {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 4rem;
+  align-items: start;
+  margin-bottom: 4rem;
 }
 
-
-@media (max-width: 768px) {
-
-
-.contact{
-    position: absolute;
-    top: 570%;
-    left: 10%;
-    margin-top: 20px;
-    text-align: left;
+/* ── Form ───────────────────────────────────────────────────────────── */
+.co-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
 }
 
-.contact p{
-    font-size: 1rem;
-    margin-bottom: 10px;
+.co-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
 }
 
+.co-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.co-label {
+  font-family: var(--sb-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--sb-accent);
+}
+
+.co-input {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--sb-border);
+  color: var(--sb-text);
+  font-family: var(--sb-mono);
+  font-size: 11px;
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color 0.25s, background 0.25s;
+  resize: none;
+  width: 100%;
+  appearance: none;
+}
+
+.co-input::placeholder { color: rgba(232, 226, 217, 0.2); }
+
+.co-input:focus {
+  border-color: rgba(200, 169, 126, 0.5);
+  background: rgba(200, 169, 126, 0.03);
+}
+
+.co-textarea { min-height: 140px; }
+
+/* ── Submit button ──────────────────────────────────────────────────── */
+.co-form-footer {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.co-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--sb-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sb-bg);
+  background: var(--sb-accent);
+  border: 1px solid var(--sb-accent);
+  padding: 13px 28px;
+  transition: background 0.3s, gap 0.3s, opacity 0.3s;
+}
+.co-submit:hover:not(:disabled) {
+  background: #d4b98e;
+  gap: 16px;
+}
+.co-submit:disabled { opacity: 0.6; }
+
+/* animated ellipsis */
+.co-dots::after {
+  content: '...';
+  display: inline-block;
+  animation: co-dots 1.2s steps(4, end) infinite;
+  width: 1.5em;
+  overflow: hidden;
+}
+@keyframes co-dots {
+  0%,100% { content: '';   }
+  25%      { content: '.';  }
+  50%      { content: '..'; }
+  75%      { content: '...'; }
+}
+
+.co-error {
+  font-family: var(--sb-mono);
+  font-size: 9.5px;
+  color: #e07070;
+  letter-spacing: 0.05em;
+}
+
+/* ── Side info ──────────────────────────────────────────────────────── */
+.co-side {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-top: 0.4rem;
+}
+
+.co-info-block {}
+
+.co-info-label {
+  font-family: var(--sb-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--sb-accent);
+  margin-bottom: 0.5rem;
+}
+
+.co-info-value {
+  font-family: var(--sb-mono);
+  font-size: 10.5px;
+  color: var(--sb-muted);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+/* availability green dot */
+.co-available-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #6fcf97;
+  box-shadow: 0 0 6px rgba(111, 207, 151, 0.5);
+  animation: co-pulse 2.4s ease-in-out infinite;
+}
+@keyframes co-pulse {
+  0%, 100% { box-shadow: 0 0 6px rgba(111, 207, 151, 0.5); }
+  50%       { box-shadow: 0 0 14px rgba(111, 207, 151, 0.8); }
+}
+
+/* socials */
+.co-socials { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.co-social-link {
+  font-family: var(--sb-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sb-muted);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.25s, gap 0.25s;
+}
+.co-social-link:hover { color: var(--sb-text); gap: 9px; }
+
+/* ── Footer strip ───────────────────────────────────────────────────── */
+.co-footer-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  border-top: 1px solid var(--sb-border);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.co-footer-copy,
+.co-footer-made {
+  font-family: var(--sb-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: rgba(232, 226, 217, 0.2);
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────── */
+@media (max-width: 680px) {
+  .co-body      { grid-template-columns: 1fr; gap: 2.5rem; }
+  .co-form-row  { grid-template-columns: 1fr; }
+  .co-side      { flex-direction: row; flex-wrap: wrap; gap: 1.5rem; }
+  .co-footer-strip { flex-direction: column; align-items: flex-start; }
 }

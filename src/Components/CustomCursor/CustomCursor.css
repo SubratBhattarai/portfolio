@@ -1,0 +1,47 @@
+/* CustomCursor.css */
+
+/* Hide the default cursor everywhere */
+*, *::before, *::after {
+  cursor: none !important;
+}
+
+/* ── Dot — snaps to mouse instantly ──────────────────────────────── */
+.c-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: #c8a97e;          /* change to any color you like */
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+/* ── Ring — lags behind via JS lerp ─────────────────────────────── */
+.c-ring {
+  position: fixed;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(200, 169, 126, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  /* Only CSS transition on size/color — position is driven by JS */
+  transition:
+    width  0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s;
+}
+
+/* ── Hover state — ring expands over links/buttons ───────────────── */
+body.cursor-hover .c-ring {
+  width: 52px;
+  height: 52px;
+  border-color: rgba(200, 169, 126, 0.85);
+}
+
+/* ── Optional: squish dot on click ──────────────────────────────── */
+body:active .c-dot {
+  transform: translate(-50%, -50%) scale(0.6);
+}

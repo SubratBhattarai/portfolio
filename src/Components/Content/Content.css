@@ -1,104 +1,198 @@
-:root {
-  --background: #f8f9fa;
-  --text: #212529;
-  --accent: #0d6efd;
-  --card: #ffffff;
-  --highlight: #ef476f;
+/* Content.css */
+
+.ct-root {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /* subtle radial glow */
+  background: radial-gradient(
+    ellipse 65% 55% at 68% 50%,
+    rgba(200, 169, 126, 0.045) 0%,
+    transparent 70%
+  );
 }
 
-
-.body{
-    width: 80%;
-    height: 30%;
-    margin-left: 10%;
-    margin-right: 10%;
-    position: absolute;
-    top: 20%;
+/* ── Decorative corner marks ───────────────────────────────────────── */
+.ct-corner {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  pointer-events: none;
+  opacity: 0.35;
+}
+.ct-corner--tr {
+  top: 44px; right: 52px;
+  border-top:   1px solid rgba(200, 169, 126, 0.4);
+  border-right: 1px solid rgba(200, 169, 126, 0.4);
+}
+.ct-corner--bl {
+  bottom: 44px; left: 52px;
+  width: 70px; height: 70px;
+  border-bottom: 1px solid rgba(200, 169, 126, 0.25);
+  border-left:   1px solid rgba(200, 169, 126, 0.25);
 }
 
-
-.intro{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 20px;
-    
-}
-.body:hover{
-    transform: scale(1.005);
-    cursor: pointer;
-    transition: .3s ease-in;
+/* ── Inner layout ──────────────────────────────────────────────────── */
+.ct-inner {
+  width: 90%;
+  max-width: 860px;
+  padding: 7rem 0 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
-h2{
-    font-size: 3rem;
-    margin-bottom: 20px;
+/* ── Eyebrow ───────────────────────────────────────────────────────── */
+.ct-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--sb-mono);
+  font-size: 9px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--sb-accent);
+  margin-bottom: 1.6rem;
+}
+.ct-eyebrow-line {
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: var(--sb-accent);
+  flex-shrink: 0;
 }
 
-h2 span{
-    color: var(--highlight);
+/* ── Name heading ──────────────────────────────────────────────────── */
+.ct-name {
+  font-family: var(--sb-serif);
+  font-size: clamp(3.8rem, 8.5vw, 7.5rem);
+  font-weight: 300;
+  line-height: 1.03;
+  letter-spacing: -0.02em;
+  color: var(--sb-text);
+  margin-bottom: 2rem;
 }
-.body p{
-    margin-top: 20px;
-    text-align: center;
-    font-size: 1.8rem;
-}
-.skills{
-    text-align: left;
-    position: absolute;
-    top: 70%;
-    left: 10%;
-    transform: translate(-50, -50);
-}
-.skills li{
-    margin: 0px;
-    font-weight: bold;
-    display: flex;
-    flex-direction: column;
-    font-size: 1.4rem;
-    margin-right: 5px;
-    font-style: italic;
-}
-.links{
-    font-size: 3rem;
-    text-align: left;
-    margin-top: 20px;
-}
-.links a{
-    text-decoration: none;
-    color: var(--accent);
-    margin-right: 20px;
+.ct-name em {
+  font-style: italic;
+  color: var(--sb-accent);
 }
 
-@media (max-width: 768px) {
-
-.body p{
-    margin-top: 20px;
-    text-align: center;
-    font-size: 1.3rem;
+/* ── Tagline ───────────────────────────────────────────────────────── */
+.ct-tagline {
+  font-family: var(--sb-mono);
+  font-size: 11px;
+  line-height: 2.1;
+  color: var(--sb-muted);
+  max-width: 400px;
+  border-left: 1px solid rgba(200, 169, 126, 0.25);
+  padding-left: 20px;
+  margin-bottom: 2.8rem;
 }
 
-.skills{
-    text-align: left;
-    position: absolute;
-    top: 100%;
-    left: 10%;
-    transform: translate(-50, -50);
+/* ── CTA buttons ───────────────────────────────────────────────────── */
+.ct-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 3.5rem;
 }
 
-.skills li{
-    margin: 0px;
-    font-weight: bold;
-    display: flex;
-    flex-direction: column;
-    font-size: 1.2rem;
-    margin-right: 5px;
-    font-style: italic;
-}
-.links{
-    font-size: 2rem;
-    text-align: left;
-    margin-top: 20px;
+.ct-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--sb-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 13px 26px;
+  transition: gap 0.3s, background 0.3s, border-color 0.3s, color 0.3s;
 }
 
+.ct-btn--primary {
+  color: var(--sb-bg);
+  background: var(--sb-accent);
+  border: 1px solid var(--sb-accent);
+}
+.ct-btn--primary:hover {
+  background: #d4b98e;
+  gap: 18px;
+}
+
+.ct-btn--ghost {
+  color: var(--sb-text);
+  background: transparent;
+  border: 1px solid rgba(200, 169, 126, 0.3);
+}
+.ct-btn--ghost:hover {
+  border-color: var(--sb-accent);
+  background: var(--sb-accent-dim);
+}
+
+/* ── Stats row ─────────────────────────────────────────────────────── */
+.ct-stats {
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.ct-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ct-stat-value {
+  font-family: var(--sb-serif);
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: var(--sb-text);
+  line-height: 1;
+}
+.ct-stat-label {
+  font-family: var(--sb-mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sb-muted);
+}
+
+/* ── Scroll cue ────────────────────────────────────────────────────── */
+.ct-scroll-cue {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.ct-scroll-cue span {
+  font-family: var(--sb-mono);
+  font-size: 8px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(200, 169, 126, 0.3);
+}
+.ct-scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--sb-accent), transparent);
+  animation: ct-pulse 2.2s ease-in-out infinite;
+}
+@keyframes ct-pulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(1);    }
+  50%       { opacity: 1;   transform: scaleY(0.65); }
+}
+
+/* ── Responsive ────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .ct-corner { display: none; }
+  .ct-stats  { gap: 1.6rem; }
+  .ct-stat-value { font-size: 1.8rem; }
 }
