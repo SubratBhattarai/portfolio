@@ -131,7 +131,7 @@ export default function Contact() {
                 {status === 'sending' ? (
                   <>Sending<span className="co-dots" aria-hidden="true" /></>
                 ) : status === 'sent' ? (
-                  <>Message sent ✓</>
+                  <>Something went wrong — try emailing directly. Thanks!</>
                 ) : (
                   <>Send message <span aria-hidden="true">→</span></>
                 )}
