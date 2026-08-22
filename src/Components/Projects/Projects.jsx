@@ -5,6 +5,17 @@ import { motion } from 'framer-motion';
 const PROJECTS = [
 {
   index: '001',
+  title: 'Deep Fake Detection',
+  desc: [
+  "Developed a deepfake detection system using PyTorch and OpenCV to identify manipulated facial images",
+  "Built a custom binary classification pipeline using the GRAVEX-200K dataset with real and AI-generated images",
+  "Trained a CNN-based model achieving high accuracy on unseen test data with robust performance across diverse image conditions"
+  ],
+  stack: ['Python', 'PyTorch', 'TensorFlow', 'OpenCV', 'face-recognition'],
+  year: '2026',
+},
+{
+  index: '002',
   title: 'Facial Recognition System',
   desc: [
     "Developed a real-time facial recognition system using PyTorch and OpenCV with Haar Cascade-based face detection",
@@ -16,7 +27,7 @@ const PROJECTS = [
   year: '2025',
 },
 {
-  index: '002',
+  index: '003',
   title: 'Song Recommendation System',
   desc: [
     "Developed a content-based recommendation system using machine learning techniques",
@@ -29,7 +40,7 @@ const PROJECTS = [
   year: '2025',
 },
   {
-    index: '003',
+    index: '004',
     title: 'Crime Analysis',
     desc: [''],
     stack: ['Python', 'Pandas', 'Scikit-learn', 'Matplotlib'],
@@ -37,7 +48,7 @@ const PROJECTS = [
     year: '2025',
   },
     {
-    index: '004',
+    index: '005',
     title: 'Roller-game',
     desc: [''],
     stack: ['C#', 'Unity', 'Blender'],
@@ -45,7 +56,7 @@ const PROJECTS = [
     year: '2022',
   },
       {
-    index: '005',
+    index: '006',
     title: 'Electric Barrier Pole Mechanics',
     desc: [''],
     stack: ['C', 'Arduino'],

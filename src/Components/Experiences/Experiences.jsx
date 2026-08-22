@@ -5,6 +5,20 @@ import { motion } from 'framer-motion';
 const EXPERIENCES = [
   {
     index:    '001',
+    role:     'Insurance and Operation Intern',
+    company:  'Farm Bureau Financial Service',
+    period:   '2026 June -- 2026 August (Summer Internship)',
+    location: 'Dubuque, IA',
+    desc: [
+  "Maintained and validated customer datasets, ensuring data accuracy and consistency for business operations.",
+"Utilized digital CRM and office management tools to track customer interactions, update records, and support data-driven decision-making.",
+"Analyzed customer information and verified documentation to improve data quality and support efficient business workflows.",
+],
+    skills:   ['Communication', 'CRM Database Management', 'Data Validation and Analysis', 'Data organization and reporting'],
+  },
+
+  {
+    index:    '002',
     role:     'Information Technology Worker',
     company:  'Loras College',
     period:   '2025 Aug -- Present',
@@ -16,7 +30,7 @@ const EXPERIENCES = [
     skills:   ['Communication', 'Hardware/Software', 'Ticketing System', 'Report Analysis'],
   },
   {
-    index:    '002',
+    index:    '003',
     role:     'Machine Learning Researcher',
     company:  'Loras College',
     period:   '2024 Jan -- 2024 Aug',
@@ -28,7 +42,7 @@ const EXPERIENCES = [
 skills:   ['Python', 'PyTorch', 'Calculus', 'Raspberry PI'],
   },
   {
-    index:    '003',
+    index:    '004',
     role:     'Robotics Instructor',
     company:  'Loras College',
     period:   '2024 Dec -- 2025 May',
@@ -40,7 +54,7 @@ skills:   ['Python', 'PyTorch', 'Calculus', 'Raspberry PI'],
   skills:   ['HTML/CSS', 'JavaScript', 'Python', 'CAD'],
   },
     {
-    index:    '004',
+    index:    '005',
     role:     'Student Administrative Assistant',
     company:  'Loras College',
     period:   '2024 Dec -- 2026 May',

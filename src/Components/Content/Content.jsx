@@ -46,9 +46,8 @@ export default function Content() {
         {/* stats row */}
         <motion.div className="ct-stats" {...FADE_UP(0.4)}>
           {[
-            { value: '5+',  label: 'Years experience' },
+            { value: '3+',  label: 'Years experience' },
             { value: '20+', label: 'Projects'  },
-            { value: '5+', label: 'Happy Clients'     },
           ].map(({ value, label }) => (
             <div className="ct-stat" key={label}>
               <span className="ct-stat-value">{value}</span>
